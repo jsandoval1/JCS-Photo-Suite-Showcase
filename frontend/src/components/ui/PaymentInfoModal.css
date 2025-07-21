@@ -1,0 +1,52 @@
+/* Payment Modal */
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.payment-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 2rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .payment-modal {
+  background: #1e293b;
+}
+
+.payment-modal h3 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .payment-modal h3 {
+  color: #f1f5f9;
+}
+
+.payment-modal p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .payment-modal p {
+  color: #cbd5e1;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .payment-modal {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+} 

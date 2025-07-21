@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://plugin.powerschool.pearson.com"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation='http://plugin.powerschool.pearson.com plugin.xsd'
+        name="JCS Photo Suite"
+        version="1.0"
+        description="Photo management for PowerSchool - JCS Photo Suite">
+
+    <!-- JCS licensing system plugin installation callback -->
+    <!-- <registration url="https://jcs-photo-suite.vercel.app/api/plugin-installed"> -->
+    <registration url="https://4b743bef82e1.ngrok-free.app/api/plugin-installed">
+        <callback-data>JCS Photo Suite</callback-data>
+        <parameter name="server_url" />
+        <parameter name="oauth_url" />
+        <parameter name="district_name" />
+        <parameter name="district_uniqueid" />
+    </registration>
+
+    <oauth/>
+    
+    <autoinstall required="true">
+        <autoredeploy />
+    </autoinstall>
+    
+    <publisher name="JCS Software Solutions">
+        <contact email="support@jcs-photo-suite.com"/>
+    </publisher>
+</plugin> 

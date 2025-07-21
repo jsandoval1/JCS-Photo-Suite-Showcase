@@ -1,0 +1,87 @@
+/* Trial Checkout Component Styles */
+.trial-info,
+.enterprise-info {
+  background: var(--card-background);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.trial-info h3,
+.enterprise-info h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.trial-info ul,
+.enterprise-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trial-info li,
+.enterprise-info li {
+  padding: 0.3rem 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.trial-info li:before,
+.enterprise-info li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success-color, #059669);
+  font-weight: bold;
+}
+
+.trial-ineligible {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+
+
+.activate-trial-btn {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .trial-info,
+[data-theme="dark"] .enterprise-info {
+  background: #334155;
+  border-color: #475569;
+}
+
+[data-theme="dark"] .trial-info h3,
+[data-theme="dark"] .enterprise-info h3 {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .trial-info li,
+[data-theme="dark"] .enterprise-info li {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .trial-ineligible {
+  background: #451a1a;
+  border-color: #991b1b;
+  color: #fca5a5;
+}
+
+ 

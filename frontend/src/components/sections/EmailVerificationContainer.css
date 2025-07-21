@@ -1,0 +1,33 @@
+/* Email Verification Container Component */
+.email-verification-container {
+  background: #f9fafb;
+  min-height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+[data-theme="dark"] .email-verification-container {
+  background: #0f172a;
+}
+
+.email-verification-content {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .email-verification-container {
+    padding: 1.5rem 1rem;
+    min-height: calc(100vh - 120px);
+  }
+}
+
+@media (max-width: 480px) {
+  .email-verification-container {
+    padding: 1rem 0.5rem;
+  }
+} 

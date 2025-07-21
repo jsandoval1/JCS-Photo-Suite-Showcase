@@ -1,0 +1,241 @@
+/* Register Page Layout */
+.register-page {
+  padding: 100px 0;
+  /* min-height: calc(100vh - 160px); */
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+}
+.form-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+[data-theme="dark"] .register-page {
+  background: #111827;
+}
+
+/* Register Form Styles */
+.register-form {
+  /* max-width: 500px; */
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 4rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .register-form {
+  background: #1f2937;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.register-form h2 {
+  text-align: center;
+  /* margin-bottom: 1.5rem; */
+  color: #1f2937;
+  font-size: 1.5rem;
+}
+
+[data-theme="dark"] .register-form h2 {
+  color: #f9fafb;
+}
+
+.register-form p {
+  text-align: center;
+  /* margin-bottom: 2rem; */
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .register-form p {
+  color: #9ca3af;
+}
+
+/* Form sections */
+.form-section {
+  margin-bottom: 0.5rem;
+}
+
+.form-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .form-section h3 {
+  color: #d1d5db;
+  border-bottom-color: #4b5563;
+}
+
+/* Form groups (shared with LoginForm) */
+/* .form-group {
+  margin-bottom: 1.5rem;
+} */
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+[data-theme="dark"] .form-group label {
+  color: #d1d5db;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  color: #1f2937;
+}
+
+[data-theme="dark"] .form-group input {
+  background: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+[data-theme="dark"] .form-group input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .form-group input::placeholder {
+  color: #6b7280;
+}
+
+/* Two-column layout for name fields */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Error styles */
+.form-group.error input {
+  border-color: #ef4444;
+}
+
+.form-group.error input:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.field-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Form error message */
+.form-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+[data-theme="dark"] .form-error {
+  background: #450a0a;
+  border-color: #7f1d1d;
+  color: #f87171;
+}
+
+/* Submit button */
+.submit-button {
+  width: fit-content;
+
+  /* width: 100%; */
+  /* margin-bottom: 1rem; */
+}
+
+/* Links */
+.form-links {
+  text-align: center;
+  /* margin-top: 1.5rem; */
+}
+
+.form-links a {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .form-links a {
+  color: #60a5fa;
+}
+
+/* Help text */
+.help-text {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+[data-theme="dark"] .help-text {
+  color: #9ca3af;
+}
+
+/* Optional field marker */
+.optional {
+  color: #9ca3af;
+  font-weight: normal;
+  font-size: 0.875rem;
+}
+
+[data-theme="dark"] .optional {
+  color: #6b7280;
+}
+
+@media (max-width: 1024px) {
+  .form-grid-3col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-form {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}

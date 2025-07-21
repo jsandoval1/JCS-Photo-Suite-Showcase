@@ -1,0 +1,223 @@
+/* Main Checkout View Layout Styles */
+
+:root {
+  --background-color: #f9fafb;
+  --card-background: white;
+  --border-color: #e5e7eb;
+  --text-color: #1f2937;
+  --text-muted: #6b7280;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success-color: #059669;
+}
+
+[data-theme="dark"] {
+  --background-color: #0f172a;
+  --card-background: #1e293b;
+  --border-color: #475569;
+  --text-color: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --success-color: #34d399;
+}
+
+.checkout {
+  padding: 1.5rem 0 3rem 0;
+  background: var(--background-color);
+  min-height: calc(100vh - 140px); /* Header + Footer space */
+  min-height: calc(100svh - 140px); /* Use small viewport height for better mobile support */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Ensure no gaps in background */
+.checkout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -100px; /* Extend beyond bottom */
+  background: var(--background-color);
+  z-index: -1;
+}
+
+.checkout .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Main Checkout Layout */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.checkout-main {
+  min-height: 500px;
+}
+
+.checkout-form {
+  background: var(--card-background);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.checkout-form h2 {
+  margin: 0 0 0.75rem 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.checkout-form > p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* Page Header */
+.checkout h1 {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+/* Messages */
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-message button {
+  background: none;
+  border: none;
+  color: #dc2626;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.error-message button:hover {
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.success-message {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #059669;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+/* Loading */
+.loading-container {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+}
+
+.loading-container p {
+  font-size: 1.1rem;
+}
+
+/* Buttons */
+.checkout-actions {
+  margin-top: 1.5rem;
+}
+
+/* Ensure proper height at different zoom levels */
+@media (min-height: 600px) {
+  .checkout {
+    min-height: calc(100vh - 120px);
+  }
+}
+
+@media (min-height: 800px) {
+  .checkout {
+    min-height: calc(100vh - 140px);
+  }
+}
+
+@media (min-height: 1000px) {
+  .checkout {
+    min-height: calc(100vh - 160px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .checkout-layout {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout .container {
+    padding: 0 1rem;
+  }
+  
+  .checkout h1 {
+    font-size: 1.75rem;
+  }
+  
+  .checkout-form {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .checkout::before {
+  background: #0f172a; /* Dark theme background */
+}
+
+[data-theme="dark"] .checkout-form {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+[data-theme="dark"] .checkout-form h2 {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .checkout-form > p {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .error-message {
+  background: #451a1a;
+  border-color: #991b1b;
+  color: #fca5a5;
+}
+
+[data-theme="dark"] .error-message button {
+  color: #fca5a5;
+}
+
+[data-theme="dark"] .success-message {
+  background: #064e3b;
+  border-color: #059669;
+  color: #6ee7b7;
+} 

@@ -1,0 +1,134 @@
+/* Payment Methods Section */
+.payment-methods-section {
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.payment-methods-section h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+[data-theme="dark"] .payment-methods-section h3 {
+  color: #f1f5f9;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  align-items: stretch;
+  flex: 1;
+}
+
+.payment-method-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: left;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="dark"] .payment-method-card {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+.payment-method-card h4 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .payment-method-card h4 {
+  color: #f1f5f9;
+}
+
+.payment-method-card p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .payment-method-card p {
+  color: #cbd5e1;
+}
+
+.payment-method-card ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  color: #6b7280;
+  flex: 1;
+}
+
+[data-theme="dark"] .payment-method-card ul {
+  color: #cbd5e1;
+}
+
+.payment-method-card li {
+  margin-bottom: 0.5rem;
+}
+
+.mailing-address {
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-family: monospace;
+  color: #374151;
+  flex: 1;
+}
+
+[data-theme="dark"] .mailing-address {
+  background: #374151;
+  color: #d1d5db;
+}
+
+.payment-method-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-method-card {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-method-card {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-methods-section {
+    margin: 3rem 0;
+  }
+  
+  .payment-methods-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .payment-method-card {
+    padding: 1.5rem;
+    min-height: 250px;
+  }
+} 

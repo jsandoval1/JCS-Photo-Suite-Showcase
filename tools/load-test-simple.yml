@@ -1,0 +1,98 @@
+# CDN Load Testing Configuration
+# Purpose: Test the CDN's ability to handle load and stress
+# Notes:
+# Update target URL and ensure test licenses exist in database
+# To run, cd into tools
+# Run: artillery run load-test-simple.yml
+config:
+  target: 'https://9224849e9bb2.ngrok-free.app'
+  phases:
+    - duration: 30
+      arrivalRate: 2
+      name: "Warm up"
+    - duration: 60
+      arrivalRate: 8  # Reduced load for stability
+      name: "Load test"
+    - duration: 30
+      arrivalRate: 15  # Moderate stress test
+      name: "Stress test"
+  defaults:
+    headers:
+      ngrok-skip-browser-warning: "true"
+      Content-Type: "application/json"
+
+scenarios:
+  - name: "CDN Validation and Module Loading"
+    weight: 70
+    flow:
+      # Step 1: Validate license
+      - post:
+          url: "/api/validate-cdn"
+          json:
+            license_key: "LK-TEST-DISTRICT001"
+            server_url: "https://test001.powerschool.com"
+            district_uniqueid: "district001"
+            plugin_type: "staff"
+          capture:
+            - json: "$.cdn_token"
+              as: "cdn_token"
+            - json: "$.valid"
+              as: "is_valid"
+          expect:
+            - statusCode: [200, 403]
+      
+      # Step 2: Load module only if validation succeeded
+      - get:
+          url: "/api/cdn/license-manager"
+          headers:
+            Authorization: "Bearer {{ cdn_token }}"
+            x-plugin-type: "staff"
+            x-district-uid: "district001"
+          expect:
+            - statusCode: [200, 401, 403]
+          ifTrue: "is_valid"
+
+  - name: "License Heartbeat"
+    weight: 20
+    flow:
+      - post:
+          url: "/api/validate-cdn"
+          json:
+            license_key: "LK-TEST-DISTRICT002"
+            server_url: "https://test002.powerschool.com"
+            district_uniqueid: "district002"
+            plugin_type: "staff"
+          capture:
+            - json: "$.cdn_token"
+              as: "cdn_token"
+            - json: "$.valid"
+              as: "is_valid"
+          expect:
+            - statusCode: [200, 403]
+      
+      - think: 2
+      
+      - post:
+          url: "/api/heartbeat"
+          json:
+            cdn_token: "{{ cdn_token }}"
+            server_url: "https://test002.powerschool.com"
+            district_uniqueid: "district002"
+          expect:
+            - statusCode: [200, 403, 500]
+          ifTrue: "is_valid"
+
+  - name: "Security Violation Reporting"
+    weight: 10
+    flow:
+      - post:
+          url: "/api/security-report"
+          json:
+            license_key: "LK-TEST-DISTRICT003"
+            server_url: "https://test003.powerschool.com"
+            district_uniqueid: "district003"
+            violation_type: "unauthorized_access"
+            timestamp: "2024-01-15T10:30:00Z"
+            user_agent: "Artillery Load Test"
+          expect:
+            - statusCode: [200, 500] 

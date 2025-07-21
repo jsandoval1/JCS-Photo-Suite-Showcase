@@ -1,0 +1,110 @@
+/* Stripe Payment Form Component Styles */
+
+/* Stripe Form */
+.stripe-form {
+  margin-top: 1rem;
+}
+
+.card-fields-container {
+  margin-bottom: 1.25rem;
+}
+
+.card-field {
+  margin-bottom: 0.75rem;
+}
+
+.card-field label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.85rem;
+}
+
+.stripe-element-wrapper {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.625rem;
+  background: var(--card-background);
+  transition: border-color 0.2s ease;
+}
+
+.stripe-element-wrapper:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.postal-code-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #424770;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  padding: 0.625rem;
+}
+
+.postal-code-input::placeholder {
+  color: #aab7c4;
+}
+
+.pay-button {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.payment-security {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.payment-security p {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .card-field label {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .stripe-element-wrapper {
+  border-color: #475569;
+  background: #334155;
+}
+
+[data-theme="dark"] .stripe-element-wrapper:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="dark"] .postal-code-input {
+  color: #000000;
+}
+
+[data-theme="dark"] .postal-code-input::placeholder {
+  color: #AAB7C4;
+}
+
+[data-theme="dark"] .payment-security p {
+  color: #cbd5e1;
+} 

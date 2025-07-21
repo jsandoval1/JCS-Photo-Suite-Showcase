@@ -1,0 +1,291 @@
+/* Subscription Management Page Styles */
+
+.subscription-page h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .subscription-page h1 {
+  color: #f1f5f9;
+}
+
+.subscription-page > .container > p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .subscription-page > .container > p {
+  color: #cbd5e1;
+}
+
+.subscription-page h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 3rem 0 2rem 0;
+  text-align: center;
+}
+
+[data-theme="dark"] .subscription-page h2 {
+  color: #f1f5f9;
+}
+
+/* Back to Dashboard Navigation */
+.back-navigation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.back-nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280 !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent !important;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.back-nav-button:hover {
+  color: #2563eb !important;
+  background: #f8fafc !important;
+  border-color: #e2e8f0;
+}
+
+[data-theme="dark"] .back-nav-button {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .back-nav-button:hover {
+  color: #60a5fa !important;
+  background: #1e293b !important;
+  border-color: #334155;
+}
+
+.back-nav-button .arrow {
+  font-size: 0.8rem;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.75rem;
+  color: #d1d5db;
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .breadcrumb-separator {
+  color: #6b7280;
+}
+
+.current-page {
+  color: #1f2937;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .current-page {
+  color: #f1f5f9;
+}
+
+/* Error Message Styling */
+.subscription-page .error-message {
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[data-theme="dark"] .subscription-page .error-message {
+  background: #451a1a;
+  border-color: #991b1b;
+}
+
+.subscription-page .error-message p {
+  color: #b91c1c;
+  margin: 0;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .subscription-page .error-message p {
+  color: #fca5a5;
+}
+
+.subscription-page .error-message button {
+  background: none;
+  border: none;
+  color: #b91c1c;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+[data-theme="dark"] .subscription-page .error-message button {
+  color: #fca5a5;
+}
+
+.subscription-page .error-message button:hover {
+  color: #991b1b;
+}
+
+[data-theme="dark"] .subscription-page .error-message button:hover {
+  color: #f87171;
+}
+
+/* Email Verification Section Styling */
+.email-verification-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 2rem;
+}
+
+.verification-warning {
+  background: white;
+  border: 2px solid #fbbf24;
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .verification-warning {
+  background: #1e293b;
+  border-color: #f59e0b;
+}
+
+.warning-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.verification-warning h2 {
+  color: #d97706;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .verification-warning h2 {
+  color: #fbbf24;
+}
+
+.verification-warning p {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+[data-theme="dark"] .verification-warning p {
+  color: #cbd5e1;
+}
+
+/* Subscription History Section Width Constraint */
+.subscription-page .subscription-history-section {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.loading-container p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .loading-container p {
+  color: #cbd5e1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .subscription-page h1 {
+    font-size: 2rem;
+  }
+  
+  .subscription-page h2 {
+    font-size: 1.75rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+  
+  .verification-warning {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .back-navigation {
+    padding: 0.5rem 0;
+  }
+  
+  .back-nav-button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .breadcrumb-separator,
+  .current-page {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .subscription-page h1 {
+    font-size: 1.75rem;
+  }
+  
+  .subscription-page h2 {
+    font-size: 1.5rem;
+  }
+  
+  .subscription-page > .container > p {
+    font-size: 1rem;
+  }
+  
+  .back-navigation {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  
+  .back-nav-button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+  }
+  
+  .breadcrumb-separator,
+  .current-page {
+    font-size: 0.8rem;
+  }
+} 

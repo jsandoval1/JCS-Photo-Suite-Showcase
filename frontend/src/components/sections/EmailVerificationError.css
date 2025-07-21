@@ -1,0 +1,19 @@
+/* Email Verification Error Component */
+.email-verification-error {
+  /* Additional styles specific to error state can be added here */
+  /* Base styles are inherited from StatusCard */
+}
+
+.email-verification-error .status-icon {
+  /* Error icon styling if needed */
+}
+
+.email-verification-error .status-actions {
+  /* Error action buttons styling if needed */
+  gap: 1rem;
+}
+
+.email-verification-error .status-actions .btn {
+  flex: 1;
+  min-width: 120px;
+} 

@@ -1,0 +1,134 @@
+/* Base Button Styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Button Variants */
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: #2563eb;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #6b7280;
+  border-color: transparent;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Button Sizes */
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .btn-primary {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+[data-theme="dark"] .btn-primary:hover:not(:disabled) {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: #374151;
+  color: #f9fafb;
+  border-color: #4b5563;
+}
+
+[data-theme="dark"] .btn-secondary:hover:not(:disabled) {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+[data-theme="dark"] .btn-outline {
+  color: #60a5fa;
+  border-color: #60a5fa;
+}
+
+[data-theme="dark"] .btn-outline:hover:not(:disabled) {
+  background: #60a5fa;
+  color: #1f2937;
+}
+
+[data-theme="dark"] .btn-ghost {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .btn-ghost:hover:not(:disabled) {
+  background: #374151;
+  color: #f9fafb;
+} 

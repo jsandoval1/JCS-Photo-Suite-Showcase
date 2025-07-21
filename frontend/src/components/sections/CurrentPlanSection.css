@@ -1,0 +1,71 @@
+/* Current Plan Section */
+.current-plan-section {
+  margin-bottom: 3rem;
+}
+
+.current-plan-section h2 {
+  font-size: 1.75rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="dark"] .current-plan-section h2 {
+  color: #f9fafb;
+}
+
+.current-plan-card,
+.no-plan-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .current-plan-card,
+[data-theme="dark"] .no-plan-card {
+  background: #1f2937;
+  border-color: #4b5563;
+}
+
+.current-plan-card h3 {
+  color: #059669;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .current-plan-card h3 {
+  color: #34d399;
+}
+
+.no-plan-card h3 {
+  color: #6b7280;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .no-plan-card h3 {
+  color: #d1d5db;
+}
+
+.current-plan-card p,
+.no-plan-card p {
+  color: #6b7280;
+  margin: 0;
+}
+
+[data-theme="dark"] .current-plan-card p,
+[data-theme="dark"] .no-plan-card p {
+  color: #d1d5db;
+}
+
+.expiry-info {
+  font-size: 0.875rem;
+  color: #9ca3af !important;
+  margin-top: 0.5rem !important;
+  font-style: italic;
+}
+
+[data-theme="dark"] .expiry-info {
+  color: #6b7280 !important;
+} 

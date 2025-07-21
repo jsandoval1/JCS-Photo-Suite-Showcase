@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Conditional title based on admin_pds_uptake_access -->
+    ~[if#detailview.admin_pds_uptake_access]
+    <title>~[text:psx.html.admin_faculty.photo.staff_photo___nbsp,param:~(lastfirst),param:~(teachernumber)]</title>
+    [else#detailview]
+    <title>~[text:psx.html.admin_faculty.photo.teacher_photo___nbsp,param:~(lastfirst),param:~(teachernumber)]</title>
+    [/if#detailview]
+
+    <!-- Common scripts inclusion -->
+    ~[wc:commonscripts]
+
+    <!-- Link to CSS files for screen and print -->
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+
+    <!-- Include specific CSS and minimal loader for this page -->
+    <script defer src="/admin/javascript/JCS-Staff-Photo.js"></script>
+    <link rel="stylesheet" type="text/css" href="/admin/styles/JCS-Staff-Photo.css" />
+
+    <title>Set Staff Photo - JCS Photo Suite</title>
+</head>
+
+<body>
+    <!-- Header and breadcrumb navigation -->
+    ~[wc:admin_header_frame_css]
+    <a href="/admin/home.html" target="_top">~[text:psx.html.admin_faculty.photo.start_page]</a> &gt;
+    <a href="/admin/faculty/search.html" target="_top">~[text:psx.html.admin_faculty.photo.staff]</a> &gt;
+    <a href="/admin/faculty/home.html?selectteacher=nosearch"
+        target="_top">~[text:psx.html.admin_faculty.photo.select_a_staff_member]</a> &gt;
+    Set Photo for ~(lastfirst) (<span class="teachernumber">~(teachernumber)</span>)
+
+    ~[wc:admin_navigation_frame_css]
+    <div class="box-round">
+        <div id="jcs-license-status-banner"></div>
+        <div class="teacher-photo">
+            <div class="photo-title">Photo for
+                ~(first_name) ~(last_name)</div>
+            <div class="photo-teachernumber"><span>Teacher Number: <strong>~(teachernumber)</strong></span>
+            </div>
+            <!-- Display teacher photo -->
+            <table border="0" cellspacing="0" cellpadding="4">
+                <tr>
+                    <td align="center" class="teacher-photo-img">~(teacherphoto)</td>
+                </tr>
+            </table>
+            <!-- Image preview section -->
+            <div id="imagePreview" class="crop-preview-container">
+                <div class="crop-area">
+                    <img id="previewImg" src="#" alt="Image Preview" draggable="false">
+                    <div class="crop-overlay-top"></div>
+                    <div class="crop-overlay-bottom"></div>
+                    <div class="crop-overlay-left"></div>
+                    <div class="crop-overlay-right"></div>
+                    <div class="crop-box-border"></div>
+                    <div class="crop-grid"></div>
+                </div>
+                <div class="zoom-controls">
+                    <span class="zoom-icon">−</span>
+                    <input type="range" id="cropZoomSlider" min="1" max="3" step="0.01" value="1">
+                    <span class="zoom-icon">+</span>
+                </div>
+                <div class="button-row">
+                    <button type="button" id="rotatePreviewBtn" class="custom-file-upload">Rotate</button>
+                    <button type="button" id="resetPreviewBtn" class="custom-file-upload">Reset</button>
+                </div>
+                <p><i>Preview of new picture</i></p>
+            </div>
+            <div class="photo-options-container">
+                <form id="uploadForm" action="JCS-Teacher-Photo.html?frn=~(frn)" method="POST" enctype="multipart/form-data">
+                    <div class="button-row" id="uploadActionButtons">
+                        <button type="submit" id="submitButton" class="custom-file-upload">Confirm upload</button>
+                        <button type="button" id="clearPreviewButton" class="custom-file-upload">Cancel</button>
+                    </div>
+                    <button id="startWebcamButton" class="custom-file-upload" type="button">Take a New Picture</button>
+                    <label for="fileInput" class="custom-file-upload" id="chooseFileLabel">Choose a file</label>
+                    <input type="file" name="filename" accept="image/*" id="fileInput">
+                    <input type="hidden" name="ac" value="submitteacherphoto">
+                    <input type="hidden" name="frn" value="~(frn)">
+                    <input type="hidden" name="curtchrid" value="~(curtchrid)">
+                    <input type="hidden" id="jcs-district-uid" value="~(districtnumber)">
+                </form>
+            </div>
+            <!-- Webcam video stream -->
+            <div id="webcamContainer">
+                <video id="video" autoplay></video>
+                <canvas id="videoCanvas" width="360" height="432"></canvas>
+                <div>
+                    <button id="flipCameraButton" class="custom-file-upload">Flip Camera</button>
+                    <button id="captureButton" class="custom-file-upload">Capture Picture</button>
+                    <button id="cancelButton" class="custom-file-upload">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    ~[wc:admin_footer_frame_css]
+</body>
+
+</html> 

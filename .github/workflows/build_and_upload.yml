@@ -1,0 +1,59 @@
+name: Build and Upload Plugin ZIPs
+
+on:
+  workflow_dispatch:
+    inputs:
+      token:
+        description: 'Download token to process'
+        required: true
+        type: string
+      license_key:
+        description: 'License key for watermarking'
+        required: true
+        type: string
+      district_name:
+        description: 'District name for watermarking'
+        required: true
+        type: string
+      customer_email:
+        description: 'Customer email for watermarking'
+        required: true
+        type: string
+      timestamp:
+        description: 'Timestamp for watermarking'
+        required: true
+        type: string
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: cd licensing-server && npm install
+      - name: Install obfuscator
+        run: npm install -g javascript-obfuscator
+      - name: Make build_plugin.sh executable
+        run: chmod +x tools/build_plugin.sh
+      - name: Run build script with inputs
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.VERCEL_BLOB_TOKEN }}
+        run: |
+          tools/build_plugin.sh \
+            "${{ github.event.inputs.license_key }}" \
+            "${{ github.event.inputs.district_name }}" \
+            "${{ github.event.inputs.customer_email }}" \
+            "${{ github.event.inputs.token }}" \
+            "${{ github.event.inputs.timestamp }}"
+      - name: Upload to Vercel Blob and Update DB
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.VERCEL_BLOB_TOKEN }}
+        run: |
+          cd licensing-server/scripts
+          node upload-to-blob.js "${{ github.event.inputs.token }}"

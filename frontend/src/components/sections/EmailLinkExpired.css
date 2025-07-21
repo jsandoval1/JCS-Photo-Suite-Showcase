@@ -1,0 +1,13 @@
+/* Email Link Expired Component */
+.email-link-expired {
+  /* Additional styles specific to expired link state can be added here */
+  /* Base styles are inherited from StatusCard */
+}
+
+.email-link-expired .status-icon {
+  /* Expired link icon styling if needed */
+}
+
+.email-link-expired .status-actions {
+  /* Expired link action button styling if needed */
+} 

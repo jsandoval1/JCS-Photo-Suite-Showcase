@@ -1,0 +1,13 @@
+/* Email Verification Success Component */
+.email-verification-success {
+  /* Additional styles specific to success state can be added here */
+  /* Base styles are inherited from StatusCard */
+}
+
+.email-verification-success .status-icon {
+  /* Success icon styling if needed */
+}
+
+.email-verification-success .status-actions {
+  /* Success action button styling if needed */
+} 

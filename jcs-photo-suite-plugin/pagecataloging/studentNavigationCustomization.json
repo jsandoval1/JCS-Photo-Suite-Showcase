@@ -1,0 +1,14 @@
+{
+  "pages": [
+    {
+      "htmlID": "navStudentsEditPhoto",
+      "title": "Edit Photo",
+      "version": "22.9.0.0",
+      "contextType": "student",
+      "requiredContext": "student",
+      "sortOrder": 150,
+      "pageURL": "/admin/students/JCS-Students-Photo.html?frn=~(studentfrn)",
+      "parentHTMLID": "navStudentProfileSection"
+    }
+  ]
+} 

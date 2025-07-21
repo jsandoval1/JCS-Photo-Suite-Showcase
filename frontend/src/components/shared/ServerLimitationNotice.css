@@ -1,0 +1,26 @@
+/* Server Limitation Notice Component Styles */
+
+.server-limitation-notice {
+  background: #fffbeb;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.server-limitation-notice .notice-text {
+  color: #92400e;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .server-limitation-notice {
+  background: #451a03;
+  border-color: #92400e;
+}
+
+[data-theme="dark"] .server-limitation-notice .notice-text {
+  color: #fbbf24;
+} 

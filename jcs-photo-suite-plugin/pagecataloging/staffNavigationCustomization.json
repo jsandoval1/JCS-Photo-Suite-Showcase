@@ -1,0 +1,14 @@
+{
+  "pages": [
+    {
+      "htmlID": "navStaffEditPhoto",
+      "title": "Edit Photo",
+      "version": "22.9.0.0",
+      "contextType": "staff",
+      "requiredContext": "staff",
+      "sortOrder": 150,
+      "pageURL": "/admin/faculty/JCS-Teacher-Photo.html?frn=~(frn)",
+      "parentHTMLID": "navStaffProfileSection"
+    }
+  ]
+} 

@@ -1,0 +1,115 @@
+/* Status Card Component - Reusable status display */
+.status-card {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+[data-theme="dark"] .status-card {
+  background: #1e293b;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-color: #475569;
+}
+
+.status-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.status-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.status-card p {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+[data-theme="dark"] .status-card p {
+  color: #cbd5e1;
+}
+
+.status-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.status-actions .btn {
+  min-width: 120px;
+}
+
+/* Status variants */
+.status-card.success h2 {
+  color: #059669;
+}
+
+[data-theme="dark"] .status-card.success h2 {
+  color: #34d399;
+}
+
+.status-card.error h2 {
+  color: #dc2626;
+}
+
+[data-theme="dark"] .status-card.error h2 {
+  color: #f87171;
+}
+
+.status-card.warning h2 {
+  color: #d97706;
+}
+
+[data-theme="dark"] .status-card.warning h2 {
+  color: #fbbf24;
+}
+
+.status-card.info h2 {
+  color: #2563eb;
+}
+
+[data-theme="dark"] .status-card.info h2 {
+  color: #60a5fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .status-card {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .status-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .status-actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-card {
+    padding: 1.5rem;
+  }
+  
+  .status-icon {
+    font-size: 2.5rem;
+  }
+  
+  .status-card h2 {
+    font-size: 1.25rem;
+  }
+} 

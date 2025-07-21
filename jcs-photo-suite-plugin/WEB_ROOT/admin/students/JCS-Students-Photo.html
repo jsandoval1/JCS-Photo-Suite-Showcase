@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Common scripts inclusion -->
+    ~[wc:commonscripts]
+
+    <!-- Link to CSS files for screen and print -->
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+
+    <!-- Include specific CSS and minimal loader for this page -->
+    <script defer src="/admin/javascript/JCS-Students-Photo.js"></script>
+    <link rel="stylesheet" type="text/css" href="/admin/styles/JCS-Students-Photo.css" />
+
+    <title>Set Student Photo - JCS Photo Suite</title>
+</head>
+
+<body>
+    <!-- Header and breadcrumb navigation -->
+    ~[wc:admin_header_frame_css]
+    <a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.photo.start_page]</a> &gt; 
+    <a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.photo.student_selection]</a> &gt;
+    Set Photo for ~(lastfirst) (<span class="Student_Number">~(Student_Number)</span>)
+
+    ~[wc:admin_navigation_frame_css]
+    <div class="box-round">
+        <div id="jcs-license-status-banner"></div>
+        <div class="student-photo">
+            <div class="photo-title">Photo for
+                ~(first_name) ~(last_name)</div>
+            <div class="photo-Student_Number"><span>Student Number (LASID): <strong>~(Student_Number)</strong></span>
+            <div class="photo-State_Student_Number"><span>State Student Number (SASID): <strong>~(State_StudentNumber)</strong></span>
+            </div>
+            <!-- Display student photo -->
+            <table border="0" cellspacing="0" cellpadding="4">
+                <tr>
+                    <td align="center" class="student-photo-img">~(studentphoto)</td>
+                </tr>
+            </table>
+            <!-- Image preview section -->
+            <div id="imagePreview" class="crop-preview-container">
+                <div class="crop-area">
+                    <img id="previewImg" src="#" alt="Image Preview" draggable="false">
+                    <div class="crop-overlay-top"></div>
+                    <div class="crop-overlay-bottom"></div>
+                    <div class="crop-overlay-left"></div>
+                    <div class="crop-overlay-right"></div>
+                    <div class="crop-box-border"></div>
+                    <div class="crop-grid"></div>
+                </div>
+                <div class="zoom-controls">
+                    <span class="zoom-icon">−</span>
+                    <input type="range" id="cropZoomSlider" min="1" max="3" step="0.01" value="1">
+                    <span class="zoom-icon">+</span>
+                </div>
+                <div class="button-row">
+                    <button type="button" id="rotatePreviewBtn" class="custom-file-upload">Rotate</button>
+                    <button type="button" id="resetPreviewBtn" class="custom-file-upload">Reset</button>
+                </div>
+                <p><i>Preview of new picture</i></p>
+            </div>
+            <div class="photo-options-container">
+                <form id="uploadForm" action="JCS-Students-Photo.html?studentfrn=~(studentfrn)" method="POST" enctype="multipart/form-data">
+                    <div class="button-row" id="uploadActionButtons">
+                        <button type="submit" id="submitButton" class="custom-file-upload">Confirm upload</button>
+                        <button type="button" id="clearPreviewButton" class="custom-file-upload">Cancel</button>
+                    </div>
+                    <button id="startWebcamButton" class="custom-file-upload" type="button">Take a New Picture</button>
+                    <label for="fileInput" class="custom-file-upload" id="chooseFileLabel">Choose a file</label>
+                    <input type="file" name="filename" accept="image/*" id="fileInput">
+                    <input type="hidden" name="ac" value="submitstudentphoto">
+                    <input type="hidden" name="studentfrn" value="~(studentfrn)">
+                    <input type="hidden" name="curstudid" value="~(curstudid)">
+                    <input type="hidden" id="jcs-district-uid" value="~(districtnumber)">
+                </form>
+            </div>
+            <!-- Webcam video stream -->
+            <div id="webcamContainer">
+                <video id="video" autoplay></video>
+                <canvas id="videoCanvas" width="360" height="432"></canvas>
+                <div>
+                    <button id="flipCameraButton" class="custom-file-upload">Flip Camera</button>
+                    <button id="captureButton" class="custom-file-upload">Capture Picture</button>
+                    <button id="cancelButton" class="custom-file-upload">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    ~[wc:admin_footer_frame_css]
+</body>
+
+</html>

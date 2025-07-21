@@ -1,0 +1,133 @@
+/* Contact Form Component */
+.contact-form {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+[data-theme="dark"] .contact-form {
+  background: #1f2937;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-color: #475569;
+}
+
+.contact-form h3 {
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .contact-form h3 {
+  color: #f1f5f9;
+}
+
+.contact-form.success {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.contact-form.success h3 {
+  color: #059669;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .contact-form.success h3 {
+  color: #34d399;
+}
+
+.contact-form.success p {
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+[data-theme="dark"] .contact-form.success p {
+  color: #cbd5e1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+[data-theme="dark"] .form-group label {
+  color: #d1d5db;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  color: #1f2937;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+  background: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+[data-theme="dark"] .form-error {
+  background: #450a0a;
+  border-color: #7f1d1d;
+  color: #f87171;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 1rem;
+  }
+} 

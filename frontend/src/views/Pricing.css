@@ -1,0 +1,47 @@
+/* Pricing Page Styles */
+.pricing {
+  background: white;
+  padding-top: 60px;
+}
+
+[data-theme="dark"] .pricing {
+  background: #111827;
+}
+
+/* Home page pricing section - padding now handled globally */
+#pricing.pricing {
+  padding: 20px 0;
+}
+
+.pricing h2 {
+  text-align: center;
+  /* padding-top: 2rem; */
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+[data-theme="dark"] .pricing h2 {
+  color: #f1f5f9;
+}
+
+.pricing-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+[data-theme="dark"] .pricing-subtitle {
+  color: #cbd5e1;
+}
+@media (max-width: 768px) {
+  .pricing {
+    padding-top: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .pricing {
+    padding: 15px 0;
+  }
+}

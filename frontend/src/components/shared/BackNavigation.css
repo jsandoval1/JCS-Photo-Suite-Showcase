@@ -1,0 +1,63 @@
+/* Back Navigation Component Styles */
+
+/* Back Navigation */
+.back-navigation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.back-nav-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.back-nav-button:hover {
+  color: var(--primary-hover);
+}
+
+.back-nav-button .arrow {
+  font-size: 1.2rem;
+}
+
+.breadcrumb-separator {
+  margin: 0 1rem;
+  color: var(--text-muted);
+}
+
+.current-page {
+  color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .back-navigation {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .back-nav-button {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .back-nav-button:hover {
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .breadcrumb-separator {
+  color: #6b7280;
+}
+
+[data-theme="dark"] .current-page {
+  color: #f9fafb;
+} 

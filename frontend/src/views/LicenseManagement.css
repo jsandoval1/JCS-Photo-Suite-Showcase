@@ -1,0 +1,164 @@
+/* License Management Page */
+.license-management {
+  background: #f9fafb;
+  min-height: calc(100vh - var(--navbar-height, 70px));
+}
+
+[data-theme="dark"] .license-management {
+  background: #111827;
+}
+
+.license-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.license-header {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.header-navigation {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.header-content {
+  text-align: center;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .header-content h1 {
+  color: #f9fafb;
+}
+
+.header-content p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+[data-theme="dark"] .header-content p {
+  color: #d1d5db;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.loading p {
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+[data-theme="dark"] .loading p {
+  color: #d1d5db;
+}
+
+/* Alert Messages */
+.error-message,
+.success-message {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.error-message {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.success-message {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+}
+
+[data-theme="dark"] .error-message {
+  background: #450a0a;
+  color: #f87171;
+  border-color: #991b1b;
+}
+
+[data-theme="dark"] .success-message {
+  background: #052e16;
+  color: #4ade80;
+  border-color: #166534;
+}
+
+.error-message p,
+.success-message p {
+  margin: 0;
+  flex: 1;
+}
+
+.error-message button,
+.success-message button {
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.error-message button:hover,
+.success-message button:hover {
+  background: currentColor;
+  color: white;
+}
+
+/* Email Verification Required Page - styles moved to EmailVerificationGuard.css */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .license-content {
+    padding: 1rem;
+  }
+
+  .header-content h1 {
+    font-size: 2rem;
+  }
+
+  .header-navigation {
+    position: static;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .error-message,
+  .success-message {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Email verification responsive styles moved to EmailVerificationGuard.css */
+}
+
+@media (max-width: 480px) {
+  .license-content {
+    padding: 0.5rem;
+  }
+
+  .header-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  /* Email verification responsive styles moved to EmailVerificationGuard.css */
+} 

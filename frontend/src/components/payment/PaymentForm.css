@@ -1,0 +1,238 @@
+.payment-form {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e5e7eb;
+}
+.stripe-element-wrapper {
+  border: 0px !important;
+  padding: 0rem !important;
+}
+
+[data-theme="dark"] .payment-form {
+  background: #1f2937;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border-color: #374151;
+}
+
+.payment-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.payment-header h3 {
+  color: #1f2937;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .payment-header h3 {
+  color: #f9fafb;
+}
+
+.payment-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .payment-header p {
+  color: #d1d5db;
+}
+
+.card-fields-container {
+  margin-bottom: 1.5rem;
+}
+
+.card-field {
+  margin-bottom: 1rem;
+}
+
+.card-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+[data-theme="dark"] .card-field label {
+  color: #d1d5db;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stripe-element-wrapper {
+  position: relative;
+}
+
+.stripe-element-wrapper .StripeElement {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  min-height: 44px;
+}
+
+[data-theme="dark"] .stripe-element-wrapper .StripeElement {
+  background: white !important;
+  border-color: #d1d5db;
+}
+
+.stripe-element-wrapper .StripeElement:focus-within {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="dark"] .stripe-element-wrapper .StripeElement:focus-within {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.stripe-element-wrapper .StripeElement--invalid {
+  border-color: #ef4444 !important;
+}
+
+.stripe-element-wrapper .StripeElement--complete {
+  border-color: #10b981 !important;
+}
+
+.postal-code-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .postal-code-input {
+  background: white;
+  border-color: #d1d5db;
+  color: #1f2937;
+}
+
+.postal-code-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="dark"] .postal-code-input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.payment-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="dark"] .payment-error {
+  background: #450a0a;
+  border-color: #991b1b;
+}
+
+.payment-error p {
+  color: #dc2626;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+[data-theme="dark"] .payment-error p {
+  color: #f87171;
+}
+
+.payment-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.payment-actions button {
+  flex: 1;
+}
+
+.payment-security {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+[data-theme="dark"] .payment-security {
+  border-top-color: #374151;
+}
+
+.payment-security p {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+[data-theme="dark"] .payment-security p {
+  color: #9ca3af;
+}
+
+/* Payment Modal Overlay */
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.payment-modal {
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Loading states */
+.payment-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .payment-form {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .payment-actions {
+    flex-direction: column;
+  }
+
+  .payment-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .card-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

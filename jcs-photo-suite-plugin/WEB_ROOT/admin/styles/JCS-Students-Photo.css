@@ -1,0 +1,459 @@
+/* Global Styles */
+body, html {
+    font-family: Arial, sans-serif !important;
+}
+
+/* Box and Layout Styles */
+.box-round {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.student-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#fileInput {
+    display: none;
+}
+
+/* Button Styles */
+.custom-file-upload,
+#submitButton,
+#startWebcamButton {
+    background-color: #0066A5;
+    border: 0 none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: .4em 0;
+    margin: 5px 0;
+    font-size: 100%;
+    line-height: 1.2em;
+    width: 220px;
+    display: inline-block;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+#submitButton {
+    display: none;
+    background-color: #2ecc40 !important;
+    color: #fff;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#submitButton:hover {
+    background-color: #27ae38 !important;
+    transform: scale(1.06);
+}
+
+#startWebcamButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#captureButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px #33333322, 0 0 2px #fff;
+    border: 1px solid #005b8a;
+    box-shadow: 0 1px 4px #0001;
+    width: 220px;
+    margin: 0;
+}
+
+#captureButton:hover {
+    background-color: #0056b3;
+}
+
+#cancelButton {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px #33333322, 0 0 2px #fff;
+    border: 1px solid #005b8a;
+    box-shadow: 0 1px 4px #0001;
+    width: 220px;
+    margin: 0;
+    background-color: #F03F35;
+}
+
+#flipCameraButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #111111;
+    color: white;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px #33333322, 0 0 2px #fff;
+    box-shadow: 0 1px 4px #0001;
+    width: 220px;
+    margin: 0 0 8px 0;
+    display: block;
+    display: none;
+}
+
+#flipCameraButton:hover {
+    background-color: #222;
+}
+
+#rotatePreviewBtn,
+#clearPreviewButton {
+    margin-left: 0 !important;
+    margin-inline-start: 0 !important;
+}
+
+#clearPreviewButton {
+    background-color: #F03F35 !important;
+    color: #fff;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#clearPreviewButton:hover {
+    background-color: #c82333 !important;
+    transform: scale(1.06);
+}
+
+.button-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.button-row > button,
+.button-row > label {
+    margin-inline-start: 0 !important;
+}
+
+label {
+    font-weight: normal !important;
+}
+
+/* Preview/Image Styles */
+#imagePreview {
+    display: none;
+    margin-top: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imagePreview img {
+    max-width: 80%;
+    max-height: 150px;
+    border: 2px solid #0066A5;
+    padding: 5px;
+}
+
+/* Webcam Modal Styles */
+#webcamContainer {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    display: none;
+}
+
+#webcamContainer>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    gap: 8px;
+}
+
+#video,
+#videoCanvas {
+    width: 360px !important;
+    height: 432px !important;
+    aspect-ratio: 120 / 144 !important;
+    object-fit: cover !important;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Student Photo Page - Inline Style Replacements */
+.photo-title {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.photo-Student_Number {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 1em;
+    color: #555;
+}
+.photo-options-container {
+    text-align: center;
+    margin-top: 20px;
+}
+#uploadForm {
+    margin: 0;
+}
+#uploadActionButtons {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+#webcamContainer {
+    display: none;
+}
+#videoCanvas {
+    display: none;
+}
+#flipCameraButton {
+    display: none;
+    margin-bottom: 8px;
+}
+
+/* Crop Preview Styles */
+.crop-preview-container {
+    width: 360px;
+    margin: 0 auto;
+    text-align: center;
+}
+.crop-area {
+    position: relative;
+    width: 360px;
+    height: 432px;
+    background: #222;
+    overflow: hidden;
+    margin: 0 auto 10px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #0002;
+    touch-action: none;
+    cursor: grab;
+}
+.crop-area:active {
+    cursor: grabbing;
+}
+.crop-area img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    pointer-events: none;
+    touch-action: none;
+    z-index: 2;
+}
+.crop-area .crop-overlay {
+    pointer-events: none;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+}
+.crop-area .crop-box-border {
+    pointer-events: none;
+    z-index: 3;
+}
+.crop-area .crop-grid {
+    pointer-events: none;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px solid #fff8;
+    box-sizing: border-box;
+    z-index: 1;
+    background: repeating-linear-gradient(
+        to right, transparent, transparent 59px, #fff2 60px, transparent 61px),
+        repeating-linear-gradient(
+        to bottom, transparent, transparent 71px, #fff2 72px, transparent 73px);
+}
+.crop-area .crop-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+}
+.crop-area .crop-overlay::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    margin: auto;
+    width: 360px;
+    height: 432px;
+    box-shadow: 0 0 0 9999px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    pointer-events: none;
+    background: transparent;
+}
+#cropZoomSlider {
+    width: 80%;
+    margin: 10px auto 0 auto;
+    display: block;
+}
+
+.crop-box-border {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 144px;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    z-index: 4;
+    pointer-events: none;
+    border-radius: 6px;
+}
+
+.crop-overlay-top,
+.crop-overlay-bottom,
+.crop-overlay-left,
+.crop-overlay-right {
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    z-index: 3;
+}
+
+.crop-overlay-top {
+    left: 0;
+    right: 0;
+    top: 0;
+    height: calc(50% - 72px);
+}
+
+.crop-overlay-bottom {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(50% - 72px);
+}
+
+.crop-overlay-left {
+    top: calc(50% - 72px);
+    bottom: calc(50% - 72px);
+    left: 0;
+    width: calc(50% - 60px);
+}
+
+.crop-overlay-right {
+    top: calc(50% - 72px);
+    bottom: calc(50% - 72px);
+    right: 0;
+    width: calc(50% - 60px);
+}
+
+/* Responsive Styles */
+@media (max-width: 400px) {
+    #video {
+        width: 100%;
+        height: auto;
+    }
+    #captureButton,
+    #cancelButton {
+        width: 100%;
+    }
+    #flipCameraButton {
+        width: 100%;
+    }
+    .crop-preview-container, .crop-area {
+        width: 100vw;
+        height: calc(100vw * 6 / 5);
+        max-width: 100vw;
+        max-height: calc(100vw * 6 / 5);
+    }
+}
+
+.zoom-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 10px auto 0 auto;
+}
+
+.zoom-icon {
+    font-size: 24px;
+    color: #666;
+    user-select: none;
+    padding: 0 10px;
+    display: inline-block;
+}
+
+#cropZoomSlider {
+    flex: 1;
+    margin: 0 10px;
+    display: inline-block;
+    width: auto;
+}
+
+#hello-world-test {
+    font-weight: bold;
+    text-align: center;
+    background: #e0f7fa;
+    border-radius: 8px;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+/* License Status Banner Styles */
+#jcs-license-status-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 24px auto;
+    padding: 9px 16px;
+    border-radius: 12px;
+    font-size: 1.15em;
+    font-weight: 500;
+    max-width: 600px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+.jcs-banner-green {
+    background: #43e97b;
+    color: #1a3a1a;
+    border: 2px solid #2ecc40;
+}
+.jcs-banner-red {
+    background: #ff5858;
+    color: #fff;
+    border: 2px solid #e74c3c;
+}
+.jcs-banner-warning-message {
+    margin-top: 8px;
+    font-size: 0.98em;
+    color: #fff;
+    font-weight: 400;
+}

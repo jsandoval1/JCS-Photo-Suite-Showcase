@@ -1,0 +1,139 @@
+/* Email Verification Guard Styles */
+.email-verification-guard {
+  padding: 2rem 0;
+}
+
+.verification-warning {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.warning-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.warning-content h2 {
+  color: #92400e;
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.warning-content p {
+  color: #92400e;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.verification-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.resend-verification-btn {
+  min-width: 200px;
+}
+
+.back-to-dashboard-btn {
+  min-width: 150px;
+}
+
+.verification-help {
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.verification-help p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #78350f;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .email-verification-guard {
+  background: #111827;
+}
+
+[data-theme="dark"] .verification-warning {
+  background: #1f2937;
+  border-color: #4b5563;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .warning-content h2 {
+  color: #f87171;
+}
+
+[data-theme="dark"] .warning-content p {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .verification-help {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+[data-theme="dark"] .verification-help p {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .verification-help strong {
+  color: #f3f4f6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .verification-warning {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+  
+  .warning-icon {
+    font-size: 3rem;
+  }
+  
+  .warning-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .warning-content p {
+    font-size: 1rem;
+  }
+  
+  .verification-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .resend-verification-btn,
+  .back-to-dashboard-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .verification-warning {
+    padding: 1.5rem;
+  }
+  
+  .warning-content h2 {
+    font-size: 1.25rem;
+  }
+  
+  .verification-help {
+    padding: 1rem;
+  }
+} 

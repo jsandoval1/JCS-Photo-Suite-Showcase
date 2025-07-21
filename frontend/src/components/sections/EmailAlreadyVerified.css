@@ -1,0 +1,13 @@
+/* Email Already Verified Component */
+.email-already-verified {
+  /* Additional styles specific to already verified state can be added here */
+  /* Base styles are inherited from StatusCard */
+}
+
+.email-already-verified .status-icon {
+  /* Already verified icon styling if needed */
+}
+
+.email-already-verified .status-actions {
+  /* Already verified action button styling if needed */
+} 
