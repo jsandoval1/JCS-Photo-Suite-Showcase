@@ -3,6 +3,27 @@
 > **Enterprise SaaS Plugin for PowerSchool**  
 > *Full-stack photo management system with licensing, payments, and security*
 
+## 🎥 Demo Video
+
+> **📹 Video Demo Coming Soon**  
+> *I plan to add a demo video by:*
+> 1. *Recording a 2-3 minute demo showing:*
+>    - *Plugin installation and setup*
+>    - *Photo upload and cropping interface*
+>    - *License management dashboard*
+>    - *Payment processing flow*
+> 2. *Dragging the video file directly into this README while editing*
+> 3. *Letting GitHub automatically host and embed the video*
+
+### 📸 Screenshot Gallery
+
+> **🖼️ Screenshots Coming Soon**  
+> *Key screens I plan to capture:*
+> - *Dashboard with license status*
+> - *Photo upload interface with cropping tools*
+> - *Payment processing and subscription management*
+> - *Mobile-responsive design on different devices*
+
 ## 🚀 Project Overview
 
 JCS Photo Suite is a production-ready SaaS plugin for PowerSchool that enables secure, mobile-friendly photo uploads with license-based distribution and automated billing for educational districts.
@@ -82,51 +103,6 @@ JCS-Photo-Suite-Showcase/
 - **Usage Tracking** - Detailed analytics and reporting
 - **Email Automation** - Onboarding, alerts, and renewal notifications
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+
-- PostgreSQL database
-- Stripe account for payments
-- Resend account for emails
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/jsandoval1/JCS-Photo-Suite-Showcase.git
-   cd JCS-Photo-Suite-Showcase
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   cd frontend && npm install
-   cd ../licensing-server && npm install
-   ```
-
-3. **Environment Setup**
-   ```bash
-   # Copy environment files
-   cp licensing-server/.env.example licensing-server/.env
-   cp frontend/.env.example frontend/.env
-   ```
-
-4. **Database Setup**
-   ```bash
-   # Configure your PostgreSQL connection
-   # Update licensing-server/.env with your database credentials
-   ```
-
-5. **Start Development Servers**
-   ```bash
-   # Backend API
-   cd licensing-server && npm run dev
-   
-   # Frontend (in new terminal)
-   cd frontend && npm run dev
-   ```
-
 ## 📁 Project Structure
 
 ### Frontend (`/frontend`)
@@ -154,7 +130,7 @@ This showcase repository contains placeholder implementations for sensitive imag
 
 - **Advanced Image Processing** - Server-side Sharp transformations with rotation, cropping, resizing
 - **Real-time Cropping UI** - Drag-and-drop interface with zoom and rotation controls
-- **Webcam Integration** - Mobile-friendly camera capture with face detection
+- **Webcam Integration** - Mobile-friendly camera capture
 - **Security Algorithms** - Anti-tampering, usage validation, and violation detection
 
 ## 📊 Performance & Scalability
@@ -165,14 +141,7 @@ This showcase repository contains placeholder implementations for sensitive imag
 - **Load Testing** - Comprehensive performance monitoring
 - **Caching Strategy** - Intelligent cache management and cleanup
 
-## 🤝 Contributing
-
-This is a showcase repository for demonstrating technical skills and architecture patterns. For business inquiries or licensing opportunities, please contact the author.
 
 ## 📄 License
 
 This project is proprietary software. All rights reserved.
-
----
-
-**Built with ❤️ using modern web technologies** 
