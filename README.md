@@ -3,39 +3,66 @@
 > **Enterprise SaaS Plugin for PowerSchool**  
 > *Full-stack photo management system with licensing, payments, and security*
 
-## 🎥 Demo Video
+## 📚 Table of Contents
 
-> **📹 Video Demo Coming Soon**  
-> *I plan to add a demo video by:*
-> 1. *Recording a 2-3 minute demo showing:*
->    - *Plugin installation and setup*
->    - *Photo upload and cropping interface*
->    - *License management dashboard*
->    - *Payment processing flow*
-> 2. *Dragging the video file directly into this README while editing*
-> 3. *Letting GitHub automatically host and embed the video*
+- [🚀 Project Overview](#-project-overview)
+- [🚧 Current Development Status](#-current-development-status)
+- [🎥 Demo Video](#-demo-video)
+- [📸 Screenshot Gallery](#-screenshot-gallery)
+- [🏗️ Architecture](#️-architecture)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [🔐 Security Features](#️-security-features)
+- [💰 Business Logic](#️-business-logic)
+- [📁 Project Structure](#️-project-structure)
+- [🔒 IP Protection Notice](#️-ip-protection-notice)
+- [📊 Performance & Scalability](#️-performance--scalability)
+- [📄 License](#️-license)
 
-### 📸 Screenshot Gallery
 
-> **🖼️ Screenshots Coming Soon**  
-> *Key screens I plan to capture:*
-> - *Dashboard with license status*
-> - *Photo upload interface with cropping tools*
-> - *Payment processing and subscription management*
-> - *Mobile-responsive design on different devices*
+
 
 ## 🚀 Project Overview
 
 JCS Photo Suite is a production-ready SaaS plugin for PowerSchool that enables secure, mobile-friendly photo uploads with license-based distribution and automated billing for educational districts.
 
 **Key Features:**
-- 🔐 **Secure Licensing System** - License validation, usage tracking, and anti-tampering
+- 🔐 **Secure Licensing System** - License validation and usage tracking
 - 💳 **Payment Integration** - Stripe subscriptions, tiered pricing ($0-$5k+), proration
 - 📱 **Mobile-First UI** - Responsive design with webcam capture and drag-and-drop cropping
-- 🛡️ **Enterprise Security** - JWT auth, rate limiting, input validation, security monitoring
+- 🛡️ **Enterprise Security** - JWT auth, rate limiting, input validation
 - 📧 **Email Automation** - Dynamic HTML templates for onboarding, alerts, renewals
 - 🚀 **CI/CD Pipeline** - Automated builds, watermarking, packaging, deployment
 
+## 🚧 Current Development Status
+
+> **⚠️ Technical Architecture Note**
+> 
+> **Temporarily Retracted Features:** Heartbeat monitoring and violation tracking have been temporarily disabled due to state management limitations in PowerSchool's traditional HTML/CSS/JavaScript architecture.
+> 
+> **Technical Challenge:** While these features were successfully implemented and functional, they occasionally triggered false license validation errors that disrupted the user experience.
+> 
+> **Future Implementation:** These capabilities will be re-implemented using PowerSchool's new Angular framework, which provides better state management and will eliminate the current technical constraints.
+> 
+> This decision prioritizes **user experience reliability** over feature completeness in the current release.
+
+## 🎥 Demo Video
+
+**📹 Video Demo of the plugin in action**
+
+Uploading from your computer/ gallery:
+
+Uploading from a webcam:
+
+Uploading from a mobile device:
+
+
+### 📸 Screenshot Gallery
+
+**🖼️ Screenshots**
+
+User Dashboard:
+
+Automated Email Notifications:
 ## 🏗️ Architecture
 
 ```
@@ -78,15 +105,13 @@ JCS-Photo-Suite-Showcase/
 - **GitHub Actions** for CI/CD automation
 - **Vercel** for frontend deployment
 - **CDN** for secure module delivery
-- **Security monitoring** and violation tracking
 
 ## 🔐 Security Features
 
-- **License Validation** - Real-time license checking with heartbeat monitoring
-- **Anti-Tampering** - Code integrity validation and security violation reporting
+- **License Validation** - Real-time license checking
 - **Rate Limiting** - API protection against abuse
 - **Input Validation** - Comprehensive sanitization and validation
-- **Usage Tracking** - Detailed monitoring of plugin usage and violations
+- **Usage Tracking** - Detailed monitoring of plugin usage
 - **Privacy Protection** - Images processed in-memory only, never stored
 
 ## 💰 Business Logic
@@ -131,7 +156,6 @@ This showcase repository contains placeholder implementations for sensitive imag
 - **Advanced Image Processing** - Server-side Sharp transformations with rotation, cropping, resizing
 - **Real-time Cropping UI** - Drag-and-drop interface with zoom and rotation controls
 - **Webcam Integration** - Mobile-friendly camera capture
-- **Security Algorithms** - Anti-tampering, usage validation, and violation detection
 
 ## 📊 Performance & Scalability
 
