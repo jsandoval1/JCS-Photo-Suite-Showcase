@@ -49,13 +49,15 @@ JCS Photo Suite is a production-ready SaaS plugin for PowerSchool that enables s
 
 **📹 Video Demo of the plugin in action**
 
-Uploading from your computer/ gallery:
+Uploading from your computer/ gallery and a Webcam
 
-Uploading from a webcam:
+https://github.com/user-attachments/assets/38fe01c2-d59d-4a6b-9ea3-5d2e5f04174d
 
 Uploading from a mobile device:
 
+> (I did not let the screen refresh in this video as it resets the page zoomed in state and contains personal information, but rest assured it works just as it does in the desktop uploads)
 
+https://github.com/user-attachments/assets/f39bde86-d6eb-4b6d-8de2-8b6d82be0e0e
 ### 📸 Screenshot Gallery
 
 **🖼️ Screenshots**
