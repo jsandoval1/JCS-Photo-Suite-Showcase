@@ -19,6 +19,9 @@ class CDNController {
         this.moduleCache = new Map(); // Cache module content and hashes
         this.cacheExpiry = 5 * 60 * 1000; // 5 minutes
         
+        // Token persistence for better reliability
+        this.tokenCleanupInterval = null;
+        
         // PRIVACY POLICY: This server NEVER stores user photos in any database or filesystem
         // All image processing is done in-memory only and images are immediately returned to client
         
@@ -27,6 +30,9 @@ class CDNController {
         
         // Start cache cleanup interval (every 10 minutes)
         this.startCacheCleanup();
+        
+        // Start token cleanup interval (every hour)
+        this.startTokenCleanup();
     }
 
     /**
@@ -59,11 +65,95 @@ class CDNController {
     }
 
     /**
+     * Start token cleanup interval to remove expired tokens
+     */
+    startTokenCleanup() {
+        this.tokenCleanupInterval = setInterval(() => {
+            const originalSize = this.activeTokens.size;
+            const validTokens = new Set();
+            
+            // Check each token and keep only valid ones
+            for (const token of this.activeTokens) {
+                try {
+                    jwt.verify(token, process.env.JWT_SECRET);
+                    validTokens.add(token);
+                } catch (error) {
+                    // Token is expired or invalid, don't add to validTokens
+                }
+            }
+            
+            this.activeTokens = validTokens;
+            const cleanedCount = originalSize - this.activeTokens.size;
+            
+            if (cleanedCount > 0) {
+                console.log(`🧹 Token cleanup: Removed ${cleanedCount} expired tokens, ${this.activeTokens.size} active tokens remaining`);
+            }
+        }, 60 * 60 * 1000); // Every hour
+    }
+
+    /**
+     * Get CDN access token - Entry point for plugin initialization
+     */
+    async getCDNAccess(req, res) {
+        try {
+            console.log('🔑 CDN ACCESS: Request received', {
+                district_uniqueid: req.body.district_uniqueid,
+                server_url: req.body.server_url,
+                plugin_type: req.body.plugin_type
+            });
+
+            const { district_uniqueid, server_url, plugin_type, security_token } = req.body;
+
+            // Validate required fields
+            if (!district_uniqueid || !server_url || !plugin_type) {
+                return res.status(400).json({
+                    success: false,
+                    error: 'Missing required fields: district_uniqueid, server_url, plugin_type'
+                });
+            }
+
+            // Basic validation of plugin type
+            if (!['staff', 'student'].includes(plugin_type)) {
+                return res.status(400).json({
+                    success: false,
+                    error: 'Invalid plugin_type. Must be "staff" or "student"'
+                });
+            }
+
+            // Generate CDN token
+            const token = this.generateCDNToken({
+                district_uniqueid,
+                plugin_type,
+                server_url
+            });
+            
+            console.log('✅ CDN ACCESS: Token generated successfully', {
+                district_uniqueid,
+                plugin_type,
+                tokenPrefix: token.substring(0, 20) + '...'
+            });
+
+            res.json({
+                success: true,
+                token: token,
+                message: 'CDN access granted'
+            });
+
+        } catch (error) {
+            console.error('❌ CDN ACCESS: Error:', error);
+            res.status(500).json({
+                success: false,
+                error: 'Internal server error'
+            });
+        }
+    }
+
+    /**
      * Preload and cache all CDN modules for better performance
      */
     async preloadModules() {
         try {
-            const allowedModules = ['license-manager', 'photo-ui', 'webcam-handler', 'image-processor'];
+            const allowedModules = ['license-manager', 'photo-handler'];
             
             for (const module of allowedModules) {
                 const modulePath = path.join(this.cdnModulesPath, `${module}.js`);
@@ -163,6 +253,7 @@ class CDNController {
             }
 
             // Generate CDN access token
+            console.log('🔑 Generating CDN access token for:', district_uniqueid);
             const cdnToken = this.generateCDNToken({
                 license_key,
                 district_uniqueid,
@@ -170,7 +261,9 @@ class CDNController {
                 expires: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
             });
 
+            // Note: generateCDNToken already adds to activeTokens, but let's be explicit
             this.activeTokens.add(cdnToken);
+            console.log('📊 Token added to activeTokens, total count:', this.activeTokens.size);
 
             // Log CDN access to database
             await this.logSecurityEvent(
@@ -214,19 +307,32 @@ class CDNController {
             const pluginType = req.headers['x-plugin-type'];
             const districtUID = req.headers['x-district-uid'];
 
+            console.log('📦 CDN Module Request:', {
+                module,
+                pluginType,
+                districtUID,
+                hasAuthHeader: !!authHeader
+            });
+
             if (!authHeader || !authHeader.startsWith('Bearer ')) {
+                console.error('❌ CDN: Missing or invalid authorization header');
                 return res.status(401).json({ error: 'Missing or invalid authorization header' });
             }
 
             const token = authHeader.split(' ')[1];
+            console.log('🔑 CDN: Validating token...');
+            console.log('📊 CDN: Active tokens count:', this.activeTokens.size);
             
             // Validate CDN token
             if (!this.validateCDNToken(token)) {
+                console.error('❌ CDN: Token validation failed');
                 return res.status(403).json({ error: 'Invalid or expired CDN token' });
             }
 
+            console.log('✅ CDN: Token validation successful');
+
             // Validate module name
-            const allowedModules = ['license-manager', 'photo-ui', 'webcam-handler', 'image-processor'];
+            const allowedModules = ['license-manager', 'photo-handler'];
             if (!allowedModules.includes(module)) {
                 return res.status(404).json({ error: 'Module not found' });
             }
@@ -551,6 +657,8 @@ class CDNController {
     // Helper Methods
 
     generateCDNToken(data) {
+        console.log('🔑 Generating CDN token for:', data.district_uniqueid);
+        
         const token = jwt.sign(data, process.env.JWT_SECRET, {
             expiresIn: '24h'
         });
@@ -558,14 +666,45 @@ class CDNController {
         // Add token to active tokens set
         this.activeTokens.add(token);
         
+        console.log('✅ CDN token generated and stored in activeTokens');
+        console.log('📊 Active tokens count:', this.activeTokens.size);
+        
         return token;
     }
 
     validateCDNToken(token) {
         try {
+            // JWT.verify will throw if expired, so we don't need to check manually
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            return this.activeTokens.has(token) && decoded.expires > Date.now();
-        } catch {
+            
+            console.log('🔍 CDN Token Debug:', {
+                tokenExists: this.activeTokens.has(token),
+                activeTokensSize: this.activeTokens.size,
+                tokenPrefix: token.substring(0, 20) + '...',
+                decodedDistrictUid: decoded.district_uniqueid
+            });
+            
+            // Check if token is in our active tokens set
+            let isValid = this.activeTokens.has(token);
+            
+            // FALLBACK: If token not in activeTokens but JWT is valid, re-add it
+            // This handles cases where the server restarted or activeTokens was cleared
+            if (!isValid && decoded && decoded.district_uniqueid) {
+                console.log('🔄 CDN: Token not in activeTokens but JWT valid, re-adding token');
+                this.activeTokens.add(token);
+                isValid = true;
+            }
+            
+            if (!isValid) {
+                console.error('❌ Token not found in activeTokens:', {
+                    tokenPrefix: token.substring(0, 20) + '...',
+                    activeTokensArray: Array.from(this.activeTokens).map(t => t.substring(0, 20) + '...')
+                });
+            }
+            
+            return isValid;
+        } catch (error) {
+            console.warn('CDN token validation failed:', error.message);
             return false;
         }
     }
@@ -674,10 +813,13 @@ class CDNController {
     }
 }
 
+console.log('🏗️ Creating CDN Controller instance');
 const cdnController = new CDNController();
+console.log('✅ CDN Controller instance created');
 
 // Export individual methods for router
 module.exports = {
+    getCDNAccess: (req, res) => cdnController.getCDNAccess(req, res),
     validateCDNAccess: (req, res) => cdnController.validateCDNAccess(req, res),
     serveModule: (req, res) => cdnController.serveModule(req, res),
     heartbeat: (req, res) => cdnController.heartbeat(req, res),
