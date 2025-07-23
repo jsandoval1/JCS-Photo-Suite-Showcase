@@ -64,6 +64,11 @@ https://github.com/user-attachments/assets/f39bde86-d6eb-4b6d-8de2-8b6d82be0e0e
 
 User Dashboard:
 
+
+<img width="2482" height="1344" alt="Screenshot 2025-07-23 025815" src="https://github.com/user-attachments/assets/c3ace045-8d59-431b-ad16-6f8997f7c7ba" />
+
+
+
 Automated Email Notifications:
 ## 🏗️ Architecture
 
